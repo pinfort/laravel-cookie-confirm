@@ -32,7 +32,7 @@ class Confirm
         }
         $parsed_query['cookie_agree'] = '1';
         $query_string = http_build_query($parsed_query);
-        $new_url = $url_data['scheme'].'://'.(array_key_exists('user', $url_data) ? $url_data['user'].':'.$url_data['pass'].'@' : '').$url_data['host'].(array_key_exists('port', $url_data) ? ':'.$url_data['port'] : '').$url_data['path'].'?'.$url_data['query'].(array_key_exists('fragment', $url_data) ? '#'.$url_data['fragment'] : '');
+        $new_url = $url_data['scheme'].'://'.(array_key_exists('user', $url_data) ? $url_data['user'].':'.$url_data['pass'].'@' : '').$url_data['host'].(array_key_exists('port', $url_data) ? ':'.$url_data['port'] : '').($url_data['path'] ?? '').'?'.$url_data['query'].(array_key_exists('fragment', $url_data) ? '#'.$url_data['fragment'] : '');
         return view('CookieConfirm::confirm', ['origin_link' => $new_url]);
     }
 }
