@@ -23,10 +23,12 @@ class Confirm
         }
         $url_data = parse_url($request->fullUrl());
         $parsed_query = [];
-        $amp_exploded = explode($url_data['query'], '&');
-        foreach ($amp_exploded as $value) {
-            $tmp = explode($value, '=');
-            $parsed_query[$tmp[0]] = $tmp[1];
+        if (array_key_exists('query', $url_data)) {
+            $amp_exploded = explode($url_data['query'], '&');
+            foreach ($amp_exploded as $value) {
+                $tmp = explode($value, '=');
+                $parsed_query[$tmp[0]] = $tmp[1];
+            }
         }
         $parsed_query['cookie_agree'] = '1';
         $query_string = http_build_query($parsed_query);
