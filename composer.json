@@ -1,0 +1,31 @@
+{
+    "name": "pinfort/laravel-cookie-confirm",
+    "description": "Any website cannot use cookie without agree.",
+    "type": "library",
+    "require": {
+        "php": ">=7.0.0",
+        "illuminate/support": ">=4.0",
+        "illuminate/view": ">=4.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "pinfort",
+            "email": "ptg@nijitei.com"
+        }
+    ],
+    "keywords": ["laravel", "GDPR", "cookie", "joke"],
+    "autoload": {
+        "psr-4": {
+            "Pinfort\\LaravelCookieConfirm\\": "src/"
+        }
+	},
+    "include-path": ["src/"],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Pinfort\\LaravelCookieConfirm\\CookieConfirmServiceProvider"
+            ]
+        }
+    }
+}
